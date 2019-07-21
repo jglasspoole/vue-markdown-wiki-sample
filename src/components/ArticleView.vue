@@ -43,6 +43,9 @@ export default{
       var articleJSON = data.body
       this.articleTitle = articleJSON['title']
       this.articleContent = articleJSON['content']
+      // eslint-disable-next-line
+    }, error => {
+      this.$router.push('/')
     })
   }
 }

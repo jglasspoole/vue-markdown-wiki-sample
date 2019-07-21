@@ -34,7 +34,7 @@
       <div class="modal-dialog modal-lg" role="document">
         <div class="modal-content">
           <div class="modal-header">
-            <h5 class="col-12 modal-title text-center">{{ articleTitle }}</h5>
+            <h5 class="col-8 modal-title text-center offset-2">{{ articleTitle }}</h5>
             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
               <span aria-hidden="true">&times;</span>
             </button>
@@ -90,6 +90,10 @@ export default{
       var articleJson = data.body
       this.articleTitle = articleJson['title']
       this.articleContent = articleJson['content']
+      // eslint-disable-next-line
+    }, error => {
+      // Article was not found, we use the URL parameter as the title for a new article
+      this.articleTitle = this.$route.params.name
     })
   }
 }
